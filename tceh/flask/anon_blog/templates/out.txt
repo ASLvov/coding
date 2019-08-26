@@ -1,0 +1,11 @@
+Посты в блоге:
+{% for art in articles %}
+    Заголовок: {{ art.title }}
+    Статья: {{ art.body }}
+    Дата: {{ art.datetime }}
+    Комментарии: {% for comment in comments %}{% if comment.article_id == art.id %}
+                    Текст: {{ comment.text }}
+                    Дата: {{ comment.datetime }}
+                {% endif %} {% endfor %}
+{% endfor %}
+Конец

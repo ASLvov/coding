@@ -1,0 +1,8 @@
+# -*- coding: utf-8 -*-
+DEBUG = True
+SECRET_KEY = 'SOME SECRET KEY'
+
+SQLALCHEMY_DATABASE_URI = 'sqlite:///anonimblog.db'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+WTF_CSRF_ENABLED = False 
