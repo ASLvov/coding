@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" action="http://127.0.0.1:5000/create_article/">
+  <h3>Заголовок:</h3>
+  <textarea name="title" rows="1" cols="60">  </textarea><br><br>
+  <h3>Статья: </h3><br><br>
+  <textarea name="body" rows="10" cols="60">  </textarea><br><br>
+  <input class="submit" type="submit" value="Опубликовать">
+</form>
+<button onclick="window.location.href = 'http://127.0.0.1:5000/';">Вернуться на главную</button>
+{% endblock %}

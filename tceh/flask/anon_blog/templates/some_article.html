@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for article in articles %}
+  <form>
+		<fieldset>
+  			<legend><h2>{{article.title}}</h2></legend>
+  			<p align="justify">{{article.body}}</p>
+  			{{article.datetime.strftime("%d.%m.%Y %H:%M")}}
+  		</fieldset>
+  		<br>
+  </form>
+
+
+<form method="POST" action="http://127.0.0.1:5000/article/{{article.id}}">
+  Ваш комментарий:<br><br>
+  <input type="text" name="text"><br><br>
+  <input type="submit" value="Опубликовать">
+</form>
+{% endfor %}
+  
+  <h3>Комментарии к записи:</h3>
+
+  {% for comment in comments %}
+    <p>{{comment.text}}</p>
+    <p>{{comment.datetime.strftime("%d.%m.%Y %H:%M")}}</p>
+    <br>
+  {% endfor %}
+
+<button onclick="window.location.href = 'http://127.0.0.1:5000/create_article/';">Написать свою статью</button>
+<button onclick="window.location.href = 'http://127.0.0.1:5000/';">Вернуться на главную</button>
+{% endblock %}

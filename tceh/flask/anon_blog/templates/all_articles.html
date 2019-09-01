@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form>
+	{% for article in articles %}
+		<fieldset>
+  			<legend><h2>{{article.title}}</h2></legend>
+  			<p align="justify">{{article.body}}</p>
+  			{{article.datetime.strftime("%d.%m.%Y %H:%M")}}
+  			<a href="http://127.0.0.1:5000/article/{{article.id}}" class="card-link">Перейти к обсуждению</a>
+  		</fieldset>
+  		<br>
+  	{% endfor %}
+</form>
+<button onclick="window.location.href = 'http://127.0.0.1:5000/create_article/';">Написать свою статью</button>
+
+{% endblock %}
